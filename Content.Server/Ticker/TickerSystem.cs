@@ -25,5 +25,6 @@ public class TickerSystem : EntitySystem
         
         var uid = EntityManager.SpawnEntity("player", new MapCoordinates(Vector2.Zero, CurrentMapId));
         e.Session.AttachToEntity(uid);
+        e.Session.JoinGame();
     }
 }
