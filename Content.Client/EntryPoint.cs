@@ -34,6 +34,8 @@ public class EntryPoint : GameClient
 
         factory.GenerateNetIds();
 
+        IoCManager.Resolve<ILightManager>().Enabled = false;
+
         // DEVNOTE: This is generally where you'll be setting up the IoCManager further.
     }
 
@@ -51,7 +53,7 @@ public class EntryPoint : GameClient
         // Be sure to check out StateManager for this! Below you'll find examples to start a game.
             
         // If you want to connect to a server...
-        // client.ConnectToServer("ip-goes-here", 1212);
+        client.ConnectToServer("localhost", 1212);
             
         // Optionally, singleplayer also works!
         // client.StartSinglePlayer();

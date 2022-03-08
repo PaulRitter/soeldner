@@ -1,0 +1,7 @@
+﻿- type: entity
+  id: player
+  name: Player
+  desc: Test
+  components:
+    - type: Sprite
+      texture: player.png

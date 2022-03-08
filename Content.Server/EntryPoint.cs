@@ -1,7 +1,10 @@
+using Content.Server.Ticker;
 using Robust.Server.ServerStatus;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
+using Robust.Shared.Map;
+using Robust.Shared.Maths;
 using Robust.Shared.Timing;
 
 // DEVNOTE: Games that want to be on the hub can change their namespace prefix in the "manifest.yml" file.
@@ -38,6 +41,9 @@ public class EntryPoint : GameServer
     public override void PostInit()
     {
         base.PostInit();
+        
+        IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<TickerSystem>().CurrentMapId = IoCManager.Resolve<IMapManager>().CreateMap();
+
         // DEVNOTE: Can also initialize IoC stuff more here.
     }
 
